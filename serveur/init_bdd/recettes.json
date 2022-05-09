@@ -1,0 +1,114 @@
+[{
+    "nom": "Citronette",
+    "ingredients": [
+      {
+        "nom": "citron",
+        "quantite": 2
+      },
+      {
+        "nom": "yaourt",
+        "quantite": 200
+      },
+      {
+        "nom": "sucre",
+        "quantite": 250
+      },
+      {
+        "nom": "oeuf",
+        "quantite": 2
+      }
+    ],
+    "mode_cuisson": "vapeur",
+    "nombres_personnes": 4,
+    "etapes": [
+      "mixer les oeufs avec le sucres",
+      "rajouter le jus de citon et le yaourt",
+      "petaler la pate sable et renverser le contenu",
+      "enfourner pendant 10min sous 150dg"
+    ],
+    "difficulte": 1,
+    "email": "jessica.nett@mailserver.fr"
+  },{
+    "nom": "Couscous royal marocain",
+    "ingredients": [
+      {
+        "nom": "collier d'agneau",
+        "quantite": 400
+      },
+      {
+        "nom": "semoule",
+        "quantite": 200
+      },
+      {
+        "nom": "oignons",
+        "quantite": 2
+      }
+    ],
+    "mode_cuisson": "vapeur",
+    "etapes": [
+      "Coupez le collier d'agneau en gros cubes",
+      "Dans une sauteuse, faites chauffer l'huile d'olive. Faites-y colorer les oignons, retirez-les et mettez l'agneau et le poulet à la place. Faites revenir quelques min",
+      "Ajoutez le céleri et les carottes épluchés et coupés en tronçons, les navets épluchés et coupés en 4 et les pois chiches égouttés. Ajoutez le concentré de tomate, le ras el hanout, la harissa et une pincée de sel. Remettez les oignons et l'ail écrasé",
+      "Couvrez d'eau à hauteur et portez à frémissements. Laissez mijoter 1 h à couvert",
+      "Faites gonfler la semoule dans 1 fois et demi son volume d'eau. Égrainez-la avec le beurre coupé en parcelles",
+      "Faites griller les merguez à sec dans une poêle",
+      "Servez le couscous accompagné de semoule, de viande et de merguez, de légumes et de bouillon"
+    ],
+    "difficulte": 2,
+    "nombres_personnes": 4,
+    "email": "alexis.sonsuper@mailserver.fr"
+  },{
+    "nom": "Chekchouka",
+    "ingredients": [
+      {
+        "nom": "courgette",
+        "quantite": 0.5
+      },
+      {
+        "nom": "tomate",
+        "quantite": 0.5
+      },
+      {
+        "nom": "oignon",
+        "quantite": 0.4
+      },
+      {
+        "nom": "aubergine",
+        "quantite": 0.5
+      },
+      {
+        "nom": "poivre",
+        "quantite": 1
+      },
+      {
+        "nom": "paprika",
+        "quantite": 1
+      },
+      {
+        "nom": "cumin",
+        "quantite": 2
+      },
+      {
+        "nom": "curcuma",
+        "quantite": 0.5
+      },
+      {
+        "nom": "coriandre",
+        "quantite": 0.5
+      },
+      {
+        "nom": "persil",
+        "quantite": 0.5
+      }
+    ],
+    "mode_cuisson": "vapeur",
+    "nombres_personnes": 4,
+    "etapes": [
+      "mixer les oeufs avec le sucres",
+      "rajouter le jus de citon et le yaourt",
+      "petaler la pate sable et renverser le contenu",
+      "enfourner pendant 10min sous 150dg"
+    ],
+    "difficulte": 3,
+    "email": "claire.delune@mailserver.fr"
+  }]

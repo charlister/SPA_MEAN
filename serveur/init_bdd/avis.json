@@ -1,0 +1,18 @@
+[
+    {
+        "pseudo":"jessicanet",
+        "nom_recette":"Citronette",
+        "score":4,
+        "titre_avis":"délicieux",
+        "commentaire":"Je n'ai absolument rien changé à la recette. Un vrai délice.",
+        "date":"12/09/2021"
+    },
+    {
+        "pseudo":"alexisson",
+        "nom_recette":"Couscous royal marocain",
+        "score":4,
+        "titre_avis":"délicieux",
+        "commentaire":"Je n'ai absolument rien changé à la recette. Un vrai délice.",
+        "date":"14/09/2021"
+    }
+]

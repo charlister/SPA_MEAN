@@ -1,0 +1,23 @@
+[
+    {
+        "nom":"Delune", 
+        "prenom":"Claire", 
+        "email":"claire.delune@mailserver.fr", 
+        "pseudo":"clairedel",
+        "mdp":"clairedelmdp"
+    },
+    {
+        "nom":"Nett", 
+        "prenom":"Jessica", 
+        "email":"jessica.nett@mailserver.fr", 
+        "pseudo":"jessicanet",
+        "mdp":"jessicanetmdp"
+    },
+    {
+        "nom":"Sonsuper", 
+        "prenom":"Alexis", 
+        "email":"alexis.sonsuper@mailserver.fr", 
+        "pseudo":"alexisson",
+        "mdp":"alexissonmdp"
+    }
+]
