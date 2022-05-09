@@ -1,0 +1,39 @@
+<!-- <p *ngIf="!supprimer" name="ingredient">
+    <input type="text" placeholder="nom">
+    <input type="number" min="0" placeholder="quantité">
+    <input type="text" placeholder="unité de mesure">
+    <input type="number" min="0" placeholder="prix">
+    <button (click)="onSupprimer()">supprimer</button>
+</p> -->
+
+<!-- EVITER LES IDENTIFIANTS DANS LES COMPOSANTS A DUPLIQUER -->
+<div *ngIf="!supprimer" class="card mb-2">
+    <div class="d-md-flex justify-content-md-end">
+        <button type="button" class="close me-md-2" (click)="onSupprimer()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="card-body" name="ingredient">
+        <div class="row form-outline mb-2">
+            <div class="col">
+                <label class="form-label" for="input_produit">Produit</label>
+                <input type="text" name="produit" class="form-control" placeholder="produit" required/>
+            </div>
+            <div class="col">
+                <label class="form-label" for="input_quantite">Quantité</label>
+                <input type="number" name="quantite" min="0" class="form-control" placeholder="0" required/>
+            </div>
+        </div>
+
+        <div class="row form-outline">
+            <div class="col">
+                <label class="form-label" for="input_mesure">Mesure</label>
+                <input type="text" name="mesure" class="form-control" placeholder="kg" required/>
+            </div>
+            <div class="col">
+                <label class="form-label" for="input_prix">Prix</label>
+                <input type="number" name="prix" min="0" class="form-control" placeholder="0" required/>
+            </div>
+        </div>
+    </div>
+</div>

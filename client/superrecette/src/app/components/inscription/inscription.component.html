@@ -1,0 +1,100 @@
+<section class="h-100 gradient-form" style="background-image:linear-gradient(rgba(255, 255, 225, 0.5), rgba(255, 255, 225, 0.5)), url('https://img.freepik.com/photos-gratuite/ingredients-alimentaires-italiens-delicieux-frais-appetissants-vieux-fond-bois-rustique-pret-cuisiner-accueil-italian-food-food-cooking-concept_1220-1740.jpg?t=st=1651221781~exp=1651222381~hmac=3dd8fecae3572a1d49ada6522e3189c567bce125db108715a5384b829f60bc60&w=826');">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="card-body p-md-5 mx-md-4">
+
+                                <div class="text-center">
+                                    <img src="https://www.ambiance-sticker.com/images/Image/sticker-cuisine-toque-de-chef-et-moustache-ambiance-sticker-KC11119.png" style="width: 100px;" alt="logo">
+                                    <h4 class="mt-1 mb-5 pb-1">YummyRecette</h4>
+                                </div>
+
+                                <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                                    <p>Créez votre compte</p>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="input_nom" class="form-control" placeholder="Nom" [(ngModel)]="utilisateur.nom" [ngModelOptions]="{standalone: true}" #mdl_nom="ngModel" required/>
+                                        <label class="form-label" for="input_nom">Nom</label>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="input_prenom" class="form-control" placeholder="Prénom" [(ngModel)]="utilisateur.prenom" [ngModelOptions]="{standalone: true}" #mdl_prenom="ngModel" required/>
+                                        <label class="form-label" for="input_prenom">Prénom</label>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="pseudo" id="input_pseudo" (input)="onChangePseudo()" class="form-control" placeholder="pseudo" [(ngModel)]="utilisateur.pseudo" [ngModelOptions]="{standalone: true}" #mdl_pseudo="ngModel" required/>
+                                        <label class="form-label" for="input_pseudo">Pseudo</label>
+
+                                        <div *ngIf="pseudo_error==1" class="alert alert-danger" role="alert">
+                                            pseudo déjà utilisé !
+                                        </div>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="input_email" (input)="onChangeEmail()" class="form-control" placeholder="toto@gmail.com" [(ngModel)]="utilisateur.email" [ngModelOptions]="{standalone: true}" #mdl_email="ngModel" required/>
+                                        <label class="form-label" for="input_email">Email</label>
+
+                                        <div *ngIf="email_error==1" class="alert alert-danger" role="alert">
+                                            cette adresse est déjà liée à un compte.
+                                        </div>
+                                    </div>
+
+                                    <div class="form-outline mb-2">
+                                        <input type="password" id="input_mdp" class="form-control" placeholder="********" [(ngModel)]="utilisateur.mdp" [ngModelOptions]="{standalone: true}" #mdl_mdp="ngModel" required/>
+                                        <label class="form-label" for="input_mdp">Mot de passe</label>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="input_mdp_confirm" class="form-control" placeholder="********" [(ngModel)]="confirm_mdp" [ngModelOptions]="{standalone: true}" #mdl_mdp_confirm="ngModel" required/>
+                                        <label class="form-label" for="input_mdp_confirm">Confirmez le mot de passe</label>
+
+                                        <div *ngIf="mdp_error" class="alert alert-danger" role="alert">
+                                            mots de passe différents.
+                                        </div>
+                                    </div>
+
+                                    <div *ngIf="inscription_res!=1" class="alert alert-danger" role="alert">
+                                        une erreur est survenue lors de l'inscription.
+                                    </div>
+
+                                    <!-- <div class="mb-3 form-check-inline">
+                                        <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">&nbsp;
+                                        <span>J'accepte les <a type="button" class="text-muted" target="_blank">conditions d'utilisation</a></span>
+                                    </div> -->
+                                    
+                                    <div class="text-center pt-1 mb-5 pb-1">
+                                        <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" [disabled]="mdl_email.invalid || mdl_mdp.invalid || mdl_nom.invalid || mdl_prenom.invalid || mdl_mdp_confirm.invalid">Inscription</button>   
+                                    </div>
+
+                                </form>
+
+                                <!-- Suggestion de connexion -->
+                                <div class="d-flex align-items-center justify-content-center pb-4">
+                                    <p class="mb-0 me-2">Vous possédez déjà un compte ?</p>
+                                    <a class="btn btn-outline-dark" [routerLink]="['/connexion']">Se connecter</a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-flex">
+                            <div>
+                                <img src="https://images.pexels.com/photos/2403391/pexels-photo-2403391.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height=100%  width="100%" style="opacity:1;">
+                            </div>
+                            <div style="position:absolute;bottom:0px; z-index:2;">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <h4 class="mb-4">Rejoignez nous !</h4>
+                                    <p class="small mb-0">En créant un compte, vous bénéficierez de l'ensemble des fonctionnalités du site. Il sera possible de laisser vos avis sur les publications, de les liker et de publier vos propres recettes.</p>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

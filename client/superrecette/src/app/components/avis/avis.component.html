@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        
+            <div class="card card-white post mt-2">
+
+                <div class="mb-1">
+                    
+                    <div class="float-left meta">
+                        <div class="title h5">
+                            <b>{{avis.pseudo}}</b>
+                        </div>
+                    </div>
+
+                    <div class="float-right image">
+                        <div class="d-inline">
+                            <img *ngFor='let c of counter(avis.score)' src="assets/icons/etoile_pleine.png" width="16" height="16" alt="étoile">
+                            <img *ngFor='let c of counter(nb_empty_star)' src="assets/icons/etoile_vide.png" width="16" height="16" alt="étoile">
+                        </div>
+                    </div>
+
+                </div> 
+
+                <div class="post-description"> 
+                    {{avis.commentaire}}
+                </div>
+
+            </div>
+        
+    </div>
+</div>

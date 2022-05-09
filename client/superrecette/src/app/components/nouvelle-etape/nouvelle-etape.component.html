@@ -1,0 +1,14 @@
+<div *ngIf="!supprimer" class="mb-1">
+    <div class="input-group has-validation">
+      <span class="input-group-text rounded-left" id="inputGroupPrepend">
+        <button type="button" class="close" aria-label="Close" (click)="onSupprimer()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </span>
+      <input type="text" class="form-control rounded-right" id="validationCustomUsername" name="etape" placeholder="étape pour réaliser la recette." aria-describedby="inputGroupPrepend" required/>
+      
+      <div class="invalid-feedback">
+        Renseignez l'étape ou supprimez la !
+      </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<!-- 10/10 -->
+<header style="background-image: url('https://img.freepik.com/photos-gratuite/ingredients-alimentaires-italiens-delicieux-frais-appetissants-vieux-fond-bois-rustique-pret-cuisiner-accueil-italian-food-food-cooking-concept_1220-1740.jpg?t=st=1651221781~exp=1651222381~hmac=3dd8fecae3572a1d49ada6522e3189c567bce125db108715a5384b829f60bc60&w=826');">
+  <nav class="navbar navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color: aliceblue;" routerLink="acceuil">YummyRecette</a>
+      <button class="navbar-toggler btn-light" style="background-color: rgb(255, 255, 255);" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">YummyRecette</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="offcanvas" routerLink="acceuil">Acceuil</a>
+            </li>
+            <li *ngIf="utilisateur|async" class="nav-item">
+              <a class="nav-link" data-bs-toggle="offcanvas" routerLink="mesrecettes">Mes recettes</a>
+            </li>
+            <li *ngIf="!(utilisateur|async)" class="nav-item">
+              <a class="nav-link" data-bs-toggle="offcanvas" routerLink="connexion">S'identifier</a>
+            </li>
+            <li *ngIf="utilisateur|async" class="nav-item">
+              <a class="nav-link" data-bs-toggle="offcanvas" (click)="logOut()">Se déconnecter</a>
+            </li>
+            <li *ngIf="utilisateur|async" class="nav-item">
+              <a class="nav-link" data-bs-toggle="offcanvas" routerLink="moncompte">Mon compte</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="recherche">Recherche avancée</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Tajine" aria-label="Rechercher" [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}" #mdl_search="ngModel" required>
+            <button class="btn btn-outline-dark" data-bs-toggle="offcanvas" (click)="onRechercher()" [disabled]="mdl_search.invalid" type="button">Rechercher</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

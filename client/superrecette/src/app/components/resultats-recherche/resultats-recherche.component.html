@@ -1,0 +1,24 @@
+<main *ngIf="!recette_selected" >
+  <section class="py-2 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="font-weight-light">Résultats de recherche</h1>
+        <p class="lead text-muted">
+          {{msg}}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="d-flex w-100 min-vh-100 p-3 mx-auto flex-column" style="background-image:linear-gradient(rgba(255, 255, 225, 0.5), rgba(255, 255, 225, 0.5)), url('https://img.freepik.com/photos-gratuite/ingredients-alimentaires-italiens-delicieux-frais-appetissants-vieux-fond-bois-rustique-pret-cuisiner-accueil-italian-food-food-cooking-concept_1220-1740.jpg?t=st=1651221781~exp=1651222381~hmac=3dd8fecae3572a1d49ada6522e3189c567bce125db108715a5384b829f60bc60&w=826');">
+    <div class="container">
+      <div class="row justify-content-center justify-content-sm-center justify-content-md-center row-cols-auto row-cols-sm-auto row-cols-md-auto g-3">
+        <app-recette *ngFor="let r of resultats" (click)="onSelectRecette(r)" [recette]="r"></app-recette>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<a *ngIf="recette_selected" type="button" class="btn btn-outline-secondary" (click)="onRetour()">Retour</a><br>
+<app-infos-recette *ngIf="recette_selected" [recette_inject]="recette"></app-infos-recette>

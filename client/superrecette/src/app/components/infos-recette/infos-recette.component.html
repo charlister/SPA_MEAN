@@ -1,0 +1,98 @@
+<section class="h-100 gradient-form" style="background-image:linear-gradient(rgba(255, 255, 225, 0.5), rgba(255, 255, 225, 0.5)), url('https://img.freepik.com/photos-gratuite/ingredients-alimentaires-italiens-delicieux-frais-appetissants-vieux-fond-bois-rustique-pret-cuisiner-accueil-italian-food-food-cooking-concept_1220-1740.jpg?t=st=1651221781~exp=1651222381~hmac=3dd8fecae3572a1d49ada6522e3189c567bce125db108715a5384b829f60bc60&w=826');">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-auto">
+                <!-- DEBUT -->
+                <div class="blog-post">
+                    <h2 class="blog-post-title">Auteur</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">{{nom}} {{prenom}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post">
+                    <h2 class="blog-post-title">{{recette_inject["nom"]}}</h2>
+
+                    <div class="card">
+                        <div class="card-body">
+
+                            <img [src]=recette_inject.image class="m-3" class="rounded mx-auto d-block img-thumbnail" [alt]=recette_inject.nom>
+
+                            
+                            <p class="card-text"><img src="assets/icons/groupe.png"              width="16" height="16" class="mr-1" alt="nombre de personnes">{{recette_inject.nombres_personnes}} personnes</p>
+                            <p class="card-text"><img src="assets/icons/plaque-de-cuisson.png"   width="16" height="16" class="mr-1" alt="mode de cuisson">{{recette_inject.mode_cuisson}}</p>
+                            <p class="card-text"><img src="assets/icons/compteur-de-vitesse.png" width="16" height="16" class="mr-1" alt="difficulté">{{recette_inject.difficulte}}</p>
+                            <div class="card-text d-inline">
+                                <img src="assets/icons/noter.png"               width="16" height="16" class="mr-1" alt="note">
+                                <!-- <div class="image"> -->
+                                    <div class="d-inline">
+                                        
+                                        <img *ngFor='let c of counter(moyenne_etoile_recette)' src="assets/icons/etoile_pleine.png" width="16" height="16" alt="étoile">
+                                        <img *ngFor='let c of counter(nb_empty_star)' src="assets/icons/etoile_vide.png" width="16" height="16" alt="étoile">
+                                    </div> 
+                                <!-- </div> -->
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <hr>
+                    
+                    <h2>Ingrédients</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <ol class="list-group list-group-flush">
+                                <li *ngFor="let ingredient of recette_inject['ingredients']" class="list-group-item">{{ingredient.nom}} : {{ingredient.quantite}} {{ingredient.unite}}</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <hr>
+                    
+                    <h2>Etapes</h2>
+                    <div class="card">
+                        <div class="card-body">
+                            <ol class="list-group list-group-flush">
+                                <li *ngFor="let etape of recette_inject.etapes" class="list-group-item">{{etape}}</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <h2>Avis</h2>
+                    <div class="card">
+                        <div *ngIf="is_user_connected" class="container">
+                            <div class="row">
+                                <div class="card card-white mt-2 mb-2">
+                                        <div class="">
+                                            <form (ngSubmit)="onSaveAvis()" #commentForm="ngForm">
+                                                <label class="form-label mb-1">Laissez votre avis</label>
+                                                <input type="text" class="" placeholder="Je laisse mon avis ..." class="form-control" [(ngModel)]="mon_avis" [ngModelOptions]="{standalone: true}"/>
+                                                <input type="number" class="mt-1 mb-1" placeholder="note/5" min="1" max="5"  class="form-control" [(ngModel)]="ma_note" [ngModelOptions]="{standalone: true}" #mdl_note="ngModel" required/>
+                                                <button type="submit" class="btn btn-danger mt-1 mb-1" [disabled]="mdl_note.invalid">Enregistrer</button>
+                                            </form>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <span *ngIf="!avis_defined">{{text_undefined}}</span>
+                            <app-avis *ngFor="let a of avis" [avis]="a"></app-avis>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- <div class="blog-post">
+                    <h2 class="blog-post-title">Publications similaires</h2>
+                    <p class="blog-post-meta">publications similaires qui défilent en carrouselle</p>
+                </div> -->
+                <!-- FIN -->
+            </div>
+        </div>
+    </div>
+</section>

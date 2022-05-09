@@ -1,0 +1,28 @@
+<main *ngIf="!recette_selected" class="d-flex w-100 min-vh-100 p-3 mx-auto flex-column">
+
+  <section class="py-2 text-center container">
+    <div class="row">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="font-weight-light">Inspirez vous de nos YummyCreateur</h1>
+        <p class="lead text-muted">Séduisez les visiteurs avec vos recettes et tentez de les avoir en première page.</p>
+        <p>
+          <a *ngIf="(email=='')" (click)="onCreate()" class="btn d-inline p-2 btn-outline-dark my-2">Se connecter</a>
+          <a *ngIf="!(email=='')" (click)="onCreate()" class="btn d-inline p-2 btn-outline-dark my-2">Créer une recette</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5" style="background-image:linear-gradient(rgba(255, 255, 225, 0.5), rgba(255, 255, 225, 0.5)), url('https://img.freepik.com/photos-gratuite/ingredients-alimentaires-italiens-delicieux-frais-appetissants-vieux-fond-bois-rustique-pret-cuisiner-accueil-italian-food-food-cooking-concept_1220-1740.jpg?t=st=1651221781~exp=1651222381~hmac=3dd8fecae3572a1d49ada6522e3189c567bce125db108715a5384b829f60bc60&w=826');"><!--style="background-color: #b8a5b8;"-->
+    <div class="container">
+      <!-- row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 -->
+      <div class="row justify-content-center justify-content-sm-center justify-content-md-center row-cols-auto row-cols-sm-auto row-cols-md-auto g-3">
+        <app-recette *ngFor="let r of recettes" type="button" (click)="onSelectRecette(r)" [recette]="r"></app-recette>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<button *ngIf="recette_selected" type="button" class="btn btn-outline-secondary" (click)="onRetour()">Retour</button><br>
+<app-infos-recette *ngIf="recette_selected" [recette_inject]="recette"></app-infos-recette>

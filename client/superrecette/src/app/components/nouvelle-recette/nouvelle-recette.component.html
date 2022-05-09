@@ -1,0 +1,81 @@
+<section class="h-100 gradient-form" style="background-image:linear-gradient(rgba(255, 255, 225, 0.5), rgba(255, 255, 225, 0.5)), url('https://img.freepik.com/photos-gratuite/ingredients-alimentaires-italiens-delicieux-frais-appetissants-vieux-fond-bois-rustique-pret-cuisiner-accueil-italian-food-food-cooking-concept_1220-1740.jpg?t=st=1651221781~exp=1651222381~hmac=3dd8fecae3572a1d49ada6522e3189c567bce125db108715a5384b829f60bc60&w=826');">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="card-body p-md-5 mx-md-4">
+
+                            <div class="text-center">
+                                <img src="https://www.ambiance-sticker.com/images/Image/sticker-cuisine-toque-de-chef-et-moustache-ambiance-sticker-KC11119.png" style="width: 185px;" alt="logo">
+                                <h4 class="mt-1 mb-5 pb-1">YummyRecette</h4>
+                            </div>
+
+                            <form (ngSubmit)="onSubmit()" #newRecetteForm="ngForm">
+                                <p>Créez votre recette</p>
+
+                                <div class="row form-outline mb-4">
+                                    <div class="col">
+                                        <label class="form-label" for="input_nom">Nom</label>
+                                        <input type="text" id="input_nom" class="form-control" placeholder="citronnette" [(ngModel)]="nouvelle_recette.nom" [ngModelOptions]="{standalone: true}" #mdl_nom="ngModel" required/>
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label" for="input_nb_personnes">Portion</label>
+                                        <input type="number" id="input_nb_personnes" min="1" class="form-control" placeholder="1" [(ngModel)]="nouvelle_recette.nombres_personnes" [ngModelOptions]="{standalone: true}" #mdl_nombres_personnes="ngModel" required/>
+                                    </div>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="input_image">URI d'une image du web</label>
+                                    <input type="url" id="input_image" class="form-control" name="input_image" placeholder="https://www.nomdedomaine.com/image.png" [(ngModel)]="nouvelle_recette.image" [ngModelOptions]="{standalone: true}" #mdl_image="ngModel" required/>
+                                </div>
+
+                                <div class="form-outline mb-3">
+                                    <label for="select_mode_cuisson" class="form-label">mode de cuisson</label>
+                                    <select class="form-select" name="select_mode_cuisson" id="select_mode_cuisson" [(ngModel)]="nouvelle_recette.mode_cuisson" [ngModelOptions]="{standalone: true}" #mdl_cuisson="ngModel" required>
+                                        <option *ngFor="let mode of modes_cuisson">{{ mode }}</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-outline mb-3">
+                                    <label for="select_difficulte" class="form-label">difficulté</label>
+                                    <select class="form-select" name="select_difficulte" id="select_difficulte" [(ngModel)]="nouvelle_recette.difficulte" [ngModelOptions]="{standalone: true}" #mdl_difficulte="ngModel" required>
+                                        <option *ngFor="let difficulte of difficultes">{{ difficulte }}</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-outline mb-3">
+                                    <label for="div_input_ingredient" class="form-label">Ingrédients</label><br>
+                                    <div id="div_input_ingredient" *ngFor="let element of array_ingredients">
+                                        <app-nouvel-ingredient></app-nouvel-ingredient>
+                                    </div>
+                                    <button type="button" (click)="ajouterBaliseIngredient()" class="btn btn-outline-secondary mt-2" id="btn_nouvel_ingredient">nouvel ingrédient</button>
+                                </div>
+
+                                <div class="form-outline mb-3 rounded">
+                                    <label for="div_input_etape" class="form-label">Etapes</label><br>
+                                    <div id="div_input_etape" *ngFor="let element of array_etapes">
+                                        <app-nouvelle-etape></app-nouvelle-etape>
+                                    </div>
+                                    <button type="button" (click)="ajouterBaliseEtape()" class="btn btn-outline-secondary mt-2" id="btn_nouvelle_etape">nouvelle étape</button>
+                                </div>
+
+                                <p *ngIf="saving_error_detected">
+                                    Une erreur s'est produite lors de l'enregistrement.
+                                </p>
+
+                                <button type="submit" class="btn btn-outline-danger" [disabled]="mdl_nom.invalid || mdl_nombres_personnes.invalid || mdl_image.invalid || mdl_cuisson.invalid || mdl_difficulte.invalid">Enregistrer</button>
+                                <!-- <button type="submit" class="btn btn-outline-danger" [disabled]="">Enregistrer</button> -->
+                            </form>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-flex" style="background-image:url({{nouvelle_recette.image}});">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

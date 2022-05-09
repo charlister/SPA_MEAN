@@ -1,0 +1,70 @@
+<section class="h-100 gradient-form" style="background-image:linear-gradient(rgba(255, 255, 225, 0.5), rgba(255, 255, 225, 0.5)), url('https://img.freepik.com/photos-gratuite/ingredients-alimentaires-italiens-delicieux-frais-appetissants-vieux-fond-bois-rustique-pret-cuisiner-accueil-italian-food-food-cooking-concept_1220-1740.jpg?t=st=1651221781~exp=1651222381~hmac=3dd8fecae3572a1d49ada6522e3189c567bce125db108715a5384b829f60bc60&w=826');">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-auto">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="card-body p-md-5 mx-md-4">
+
+                            <div class="text-center">
+                                <img src="https://www.ambiance-sticker.com/images/Image/sticker-cuisine-toque-de-chef-et-moustache-ambiance-sticker-KC11119.png" style="width: 185px;" alt="logo">
+                                <h4 class="mt-1 mb-5 pb-1">YummyRecette</h4>
+                            </div>
+
+                            <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                                <h2 class="text-center mb-3">Recherche avancée</h2>
+
+                                <!-- input -->
+
+                                <div class="form-outline mb-4">
+                                    <input id="input_keyword" type="text" placeholder="Tajine" class="form-control" [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}">
+                                    <label class="form-label" for="input_keyword">mot(s) clé(s)</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="number" id="input_nb_personnes" class="form-control" name="nbp" [(ngModel)]="nb_personnes" min="1" placeholder="min" [ngModelOptions]="{standalone: true}">
+                                    <label class="form-label" for="input_nb_personnes">nombre de personnes</label>
+                                </div>
+                            
+                                <!--<div class="form-outline mb-4">
+                                    <input type="text" class="" id="input_pseudo" class="form-control" placeholder="charlister" [(ngModel)]="pseudo" [ngModelOptions]="{standalone: true}">
+                                    <label class="form-label" for="input_pseudo">pseudo</label>
+                                </div>-->
+
+                                <!-- select -->
+
+                                <div class="form-outline mb-4">
+                                    <select class="form-select" name="select_mode_cuisson" id="select_mode_cuisson" [(ngModel)]="mode_cuisson_selected" [ngModelOptions]="{standalone: true}">
+                                        <option></option>
+                                        <option *ngFor="let x of modes_cuisson">{{ x }}</option>
+                                    </select>
+                                    <label for="select_mode_cuisson" class="form-label">Mode de cuisson</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <select class="form-select" name="select_difficulte" id="select_difficulte" [(ngModel)]="difficulte_selected" [ngModelOptions]="{standalone: true}">
+                                        <option></option>
+                                        <option *ngFor="let x of difficultes">{{x}}</option>
+                                    </select>
+                                    <label for="select_difficulte" class="form-label">Difficulté</label>
+                                </div>
+
+                                <!-- submit -->
+                                <!-- on ne recherche rien si tout est vide -->
+
+                                <div class="text-center pt-1 mb-5 pb-1">
+                                    <button 
+                                        class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" 
+                                        type="submit" 
+                                        [disabled]="(keyword=='' || keyword==undefined) && (nb_personnes==undefined) && (pseudo=='' || pseudo==undefined) && (mode_cuisson_selected=='' || mode_cuisson_selected==undefined) && (difficulte_selected=='' || difficulte_selected==undefined)">Rechercher</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
